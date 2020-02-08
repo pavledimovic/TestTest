@@ -37,8 +37,9 @@ String query = "cryptocurrency/info";
 given().pathParam("queryString", query).
 when().get(URL).
 then().assertThat()
-       .statusCode(200).and()
+                .statusCode(200).and()
                 .contentType(ContentType.JSON).and()
+
                 .header("date_added", "2015-08-07T00:00:00.000Z").and()
 
                 .body("MRData.example.example.name", hasItems("ETH"))
