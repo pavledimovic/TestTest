@@ -14,4 +14,41 @@ Regarding API test, I had big problems with authentification, api key didnt work
 btw, when i type this request in terminal: "curl -H "X-CMC_PRO_API_KEY: MY API KEY NUMBER" -H "Accept: application/json" -d "start=1&limit=5000&convert=USD" -G https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
 " I can get valid response but nothing seems to work when I try to do it via RestAssured, I get error :API key missing: , as it is in mentioned that Java Script is forbiden, and I have more experience with POSTMAN then RestAssured, I didnt finish this task in time, so I only sent frontent test finished. Thank you for understanding. Cheers.
 
+Example of small part of API test:
+
+package APITest.APITestProject;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.hasSize;
+import org.testng.annotations.Test;
+import io.restassured.http.ContentType;
+
+public class APITest {
+
+private static String apiKey = "";
+private static String URL = "https://pro-api.coinmarketcap.com/v1/{queryString}";    
+
+@Test
+public void test1() {
+
+String query = "cryptocurrency/info";
+
+given().pathParam("queryString", query).
+when().get(URL).
+then().assertThat()
+       .statusCode(200).and()
+                .contentType(ContentType.JSON).and()
+                .header("date_added", "2015-08-07T00:00:00.000Z").and()
+
+                .body("MRData.example.example.name", hasItems("ETH"))
+                .body("MRData.example.example.technical_doc.URl", hasItems("https://github.com/ethereum/wiki/wiki/White-Paper")).and()
+                .body("MRData.example.example.logo", hasItems("https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png")).and()
+                .body("MRData.example.example.example.url", hasItems("https://github.com/ethereum/wiki/wiki/White-Paper"));
+
+
+    }
+}
+
+
  
