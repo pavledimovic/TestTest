@@ -10,5 +10,8 @@ Also, you should set your path to chromedriver in Test Utils package/class if yo
 NOTE: I have commented out step where we suppose to open new browser tab, did not work for me, I wrote ussual methods that I use for that, but unfortunatelly I didn have time to debug on this ocasion.
 
 TASK2:
-Regarding API test, I had big problems with authentification, api key didnt work, I tried to add it as a query string*even that is not recomended security wise, also to pass it as a parameter in header, oauth2... but nothing seemd to work, as test mentioned that Java Script was forbiden, and I have more experience with POSTMAN then RestAssured, I didnt finish this task in time, so I only sent frontent task. Thank you for understanding. Cheers.
+Regarding API test, I had big problems with authentification, api key didnt work, I tried to add it as a query string*even that is not recomended security wise, also to pass it as a parameter in header,
+btw, when i type this request in terminal: "curl -H "X-CMC_PRO_API_KEY: MY API KEY NUMBER" -H "Accept: application/json" -d "start=1&limit=5000&convert=USD" -G https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest
+" I can get valid response but nothing seems to work when I try to do it via RestAssured, I get error :API key missing: , as it is in mentioned that Java Script is forbiden, and I have more experience with POSTMAN then RestAssured, I didnt finish this task in time, so I only sent frontent test finished. Thank you for understanding. Cheers.
 
+ 
