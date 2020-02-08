@@ -9,3 +9,6 @@ Also, you should set your path to chromedriver in Test Utils package/class if yo
 
 NOTE: I have commented out step where we suppose to open new browser tab, did not work for me, I wrote ussual methods that I use for that, but unfortunatelly I didn have time to debug on this ocasion.
 
+TASK2:
+Regarding API test, I had big problems with authentification, api key didnt work, I tried to add it as a query string*even that is not recomended security wise, also to pass it as a parameter in header, oauth2... but nothing seemd to work, as test mentioned that Java Script was forbiden, and I have more experience with POSTMAN then RestAssured, I didnt finish this task in time, so I only sent frontent task. Thank you for understanding. Cheers.
+
